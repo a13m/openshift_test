@@ -26,7 +26,10 @@ echo
 #
 if [ ! -d "${OPENSHIFT_DATA_DIR}downloads/current" ]
 then
-  mkdir -p ${OPENSHIFT_DATA_DIR}bin
+mkdir ${OPENSHIFT_DATA_DIR}drush
+wget --quiet -O - http://ftp.drupal.org/files/projects/drush-7.x-5.6.tar.gz | tar -zxf - -C ${OPENSHIFT_DATA_DIR}drush
+ 
+ mkdir -p ${OPENSHIFT_DATA_DIR}bin
   export DRUSH_SCRIPT=`find $OPENSHIFT_HOMEDIR -type f -name drush 2>/dev/null | head -1`
   ln -s $DRUSH_SCRIPT ${OPENSHIFT_DATA_DIR}bin/drush
   mkdir -p ${OPENSHIFT_TMP_DIR}drupal
