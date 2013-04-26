@@ -1,3 +1,3 @@
 <?php 
-print "works";
+ print "works";
 ?>
